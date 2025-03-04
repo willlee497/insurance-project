@@ -70,7 +70,7 @@ Address missing coverage, sub-reason, disposition, and conclusion data. High mis
 Consumer Guidance:
 Combine complaint frequency, average resolution time, and financial recovery data for each insurer. Insurers with fewer complaints and faster resolution and higher or fair recoveries are more likely to be “responsive to consumer needs.” Present these insights through an accessible ranking or dashboard for Connecticut residents.
 
-9. Key Takeaways for Consumer Trust
+9. Takeaways
 Dominant Complaint Category: Claim handling dominates, indicating a key area for insurers to improve.
 Most Complained-About Insurers: Anthem (possibly reflecting market share) leads in total complaints, followed by UnitedHealthcare, several Progressive entities, State Farm, Allstate, and Cigna.
 Recovery Amounts Are Often $0: Most complaints yield no direct financial benefit, though some consumers recover significantly.
