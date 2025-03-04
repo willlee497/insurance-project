@@ -76,7 +76,7 @@ Most Complained-About Insurers: Anthem (possibly reflecting market share) leads 
 Recovery Amounts Are Often $0: Most complaints yield no direct financial benefit, though some consumers recover significantly.
 Next-Level Analysis Needed: Incorporating resolution time and more robust text or sentiment metrics will be critical to reveal which insurers handle issues most efficiently.
 
-Final Remarks
+Final Conclusion
 This analysis forms a strong foundation for my team’s work. By integrating the findings (data cleaning, EDA, preliminary modeling steps) with our project’s goals:
 Guiding Connecticut residents to insurers with better overall consumer outcomes.
 Showcasing data science techniques for turning raw complaint data into actionable insights.
