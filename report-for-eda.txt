@@ -1,6 +1,6 @@
 
 1. Project Overview
-You have over 65,000 consumer complaints filed against insurance companies in Connecticut. The dataset includes information on:
+We have over 65,000 consumer complaints filed against insurance companies in Connecticut. The dataset includes information on:
 Complaint Details: Company name, date opened, date closed, complaint reason, and sub-reason.
 Resolution and Outcome: Disposition (e.g., “Company Position Substantiated”), conclusion (e.g., “Claim Paid” or “Company Position Upheld”), and complaint status (e.g., “Closed,” “Open”).
 Financial Recovery: Amount of money recovered (often zero, but can be as high as $843,825.85 in rare cases).
