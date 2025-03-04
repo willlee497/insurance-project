@@ -1,0 +1,84 @@
+
+1. Project Overview
+You have over 65,000 consumer complaints filed against insurance companies in Connecticut. The dataset includes information on:
+Complaint Details: Company name, date opened, date closed, complaint reason, and sub-reason.
+Resolution and Outcome: Disposition (e.g., “Company Position Substantiated”), conclusion (e.g., “Claim Paid” or “Company Position Upheld”), and complaint status (e.g., “Closed,” “Open”).
+Financial Recovery: Amount of money recovered (often zero, but can be as high as $843,825.85 in rare cases).
+By cleaning, merging, and analyzing this data, our team is building both supervised and unsupervised models to uncover complaint patterns and predict outcomes. Below are the key takeaways from the Exploratory Data Analysis (EDA) and summary statistics, as shown in the findings.
+
+2. Data Quality and Missing Values
+Total Records: 68,469 complaints before deduplication.
+Missing Values:
+About 2.16% of complaints have no closed date (i.e., they remain open or otherwise unrecorded).
+Coverage and Reason columns each have around 5% missing data.
+SubCoverage is missing close to 19.64%.
+Disposition and Conclusion each have over 35% missing data.
+These missing values could be systematic (e.g., certain insurers not reporting certain fields) or random, so further investigation is recommended.
+Implication for Modeling: Before modeling (supervised or unsupervised), we may need to handle missing data appropriately, e.g., by imputing or treating “unknown” coverage types distinctly, or exploring why large portions of Disposition/Conclusion fields are missing.
+
+3. Complaint Frequencies & Most-Complained-About Insurers
+A core question is which insurers receive the most complaints. Counting complaints (after removing duplicates) reveals:
+Top 5 Insurance Companies by Complaint Volume
+Anthem Health Plans, Inc – 3,657 complaints (≈12.80%)
+UnitedHealthcare Insurance Company – 1,024 complaints (≈3.58%)
+Progressive Direct Insurance Company – 755 complaints (≈2.64%)
+State Farm Mutual Automobile Insurance Company – 732 complaints (≈2.56%)
+Allstate Fire and Casualty Insurance Company – 722 complaints (≈2.53%)
+Interpretation: Anthem receives by far the largest share, though it may also have one of the largest market shares in Connecticut. Nonetheless, high complaint volumes can signal areas where responsiveness or claim handling may need improvement.
+
+4. Reasons for Complaints
+Understanding why consumers complain is crucial for identifying insurer shortcomings and improving trust. Four main “Reason” categories appear in the data:
+Claim Handling – 71.72% of complaints
+Underwriting – 14.42%
+Policyholder Service – 10.16%
+Marketing & Sales – 3.70%
+Key Insight: Over 70% of complaints center on how claims are handled (e.g., delays, denials, or settlement issues). This highlights that the primary consumer pain point is the claim resolution process.
+
+5. Recovery Amounts and Financial Outcomes
+Overall Recovery Statistics:
+Mean Recovery (including outliers): $1,723.51 to $1,741.72 (depending on the exact snapshot)
+Median Recovery: $0.00 (indicating many complaints yield no financial recoupment)
+Maximum Recovery: $843,825.85
+Distribution: Highly skewed, with a small number of very large recoveries pulling the mean upward.
+When filtering out extreme outliers using the Interquartile Range (IQR) method, the mean recovery amount drops effectively to $0.00. This suggests that while a few policyholders recover significant sums, the vast majority do not receive financial compensation from their complaints.
+
+6. Resolution and Status Insights
+Complaint Status: Over 98% of complaints are ultimately “Closed.” Very few remain “Open,” “Sent to Company,” or in other interim statuses.
+Conclusion Categories (Top Five):
+Justified (12.46%)
+Company Position Upheld (10.39%)
+Furnished Information (8.61%)
+Claim Paid (8.01%)
+Corrective Action (7.45%)
+A large portion of “Closed” complaints are categorized as “Justified” or “Company Position Upheld,” which may show that in many cases the insurer’s stance is validated. However, a respectable fraction result in “Claim Paid,” indicating successful financial outcomes for policyholders.
+
+7. Correlation and Regression Analysis
+Correlation Matrix: With only one primary numeric variable (Recovery), the correlation with “File No.” (an ID) is effectively 0.005, which is essentially negligible.
+OLS Regression: Regressing “File No.” on “Recovery” yields an R-squared ≈ 0.000 and a p-value of 0.189, confirming no meaningful linear relationship.
+Implication: Additional numeric features (like computed resolution time from Opened to Closed) would be more relevant for building predictive models. As-is, “File No.” is just an identifier, so it does not contribute predictive power.
+
+8. Potential Next Steps for our Goals
+Resolution Time Computations:
+Currently, you have Opened and Closed dates. Calculating how long each complaint stayed open would directly measure insurer responsiveness. Ranking companies by average resolution time could complement the frequency analysis.
+Supervised Modeling:
+Classification: Predict whether a complaint results in a financial recovery or certain resolution outcome. Features could include coverage type, reason, sub-reason, company category, resolution time, etc.
+Regression: Predict the likely recovery amount, focusing on claim type, coverage, or company.
+Unsupervised Modeling:
+Clustering: Group similar complaints to discover hidden patterns, such as a cluster of “claim denial” scenarios that eventually get overturned, or clusters of complaints with fast vs. slow resolution times.
+Data Cleaning and Imputation:
+Address missing coverage, sub-reason, disposition, and conclusion data. High missingness can bias any model if not handled properly.
+Consumer Guidance:
+Combine complaint frequency, average resolution time, and financial recovery data for each insurer. Insurers with fewer complaints and faster resolution and higher or fair recoveries are more likely to be “responsive to consumer needs.” Present these insights through an accessible ranking or dashboard for Connecticut residents.
+
+9. Key Takeaways for Consumer Trust
+Dominant Complaint Category: Claim handling dominates, indicating a key area for insurers to improve.
+Most Complained-About Insurers: Anthem (possibly reflecting market share) leads in total complaints, followed by UnitedHealthcare, several Progressive entities, State Farm, Allstate, and Cigna.
+Recovery Amounts Are Often $0: Most complaints yield no direct financial benefit, though some consumers recover significantly.
+Next-Level Analysis Needed: Incorporating resolution time and more robust text or sentiment metrics will be critical to reveal which insurers handle issues most efficiently.
+
+Final Remarks
+This analysis forms a strong foundation for my team’s work. By integrating the findings (data cleaning, EDA, preliminary modeling steps) with our project’s goals:
+Guiding Connecticut residents to insurers with better overall consumer outcomes.
+Showcasing data science techniques for turning raw complaint data into actionable insights.
+To advance, we need to consider computing resolution durations, filling or imputing missing data, and possibly applying sentiment or cluster analyses to better pinpoint the insurers most responsive to consumer needs.
+
